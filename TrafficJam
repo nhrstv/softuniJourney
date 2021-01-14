@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace StacksAndQueues
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] children = Console.ReadLine().Split();
+            int n = int.Parse(Console.ReadLine());
+            Queue<string> potatoeQueue = new Queue<string>(children);
+            int potato = 0;
+            while (potatoeQueue.Count>1)
+            {
+               
+                potato++;
+                string kid = potatoeQueue.Dequeue();
+
+                if (potato == n)
+                {
+                    potato = 0;
+                    Console.WriteLine("Removed " + kid);
+
+                }
+                else
+                {
+                    potatoeQueue.Enqueue(kid);
+                   
+                }
+                
+
+                
+
+            }
+            Console.WriteLine("Last is "+potatoeQueue.Dequeue());
+         
+        }
+    }
+}
